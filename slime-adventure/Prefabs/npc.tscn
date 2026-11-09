@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dp87sruo7s6l7" path="res://scripts/npc.gd" id="1_nrg37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1lh6"]
-size = Vector2(20, 10.5)
+size = Vector2(20, 12)
 
 [sub_resource type="Animation" id="Animation_c0dvn"]
 length = 0.001
@@ -71,12 +71,11 @@ _data = {
 script = ExtResource("1_nrg37")
 
 [node name="NpcSheet" type="Sprite2D" parent="." unique_id=528872159]
-position = Vector2(235, 167)
 texture = ExtResource("1_kd6ta")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=357340924]
-position = Vector2(235, 177.75)
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_w1lh6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1650107014]

@@ -1,5 +1,7 @@
 extends Node
 
+var path : String
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_scene("res://Scenes/emerald's_house.tscn")
@@ -10,3 +12,4 @@ func load_scene(path: String):
 		get_child(0).queue_free()
 	var scene = load(path)
 	add_child(scene.instantiate())
+	self.path = path

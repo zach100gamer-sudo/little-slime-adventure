@@ -10,7 +10,12 @@
 # : third if declaring type.
 # fourth IS type always spelt in PascalCase, with exception to int, float, bool, null.
 
+#
+
 extends CharacterBody2D
+
+var max_jump_count : int = 1
+var jump_count : int = 0
 
 @export var animator : AnimationPlayer
 @export var SPEED = 300.0
@@ -18,6 +23,7 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	animator.play("idle")
+	check_upgrades()
 
 func _physics_process(delta: float) -> void:
 	# handle the gravity.
@@ -27,9 +33,12 @@ func _physics_process(delta: float) -> void:
 			animator.play("fall")
 		elif velocity.y < 0:
 			animator.play("jump")
+	else:
+		jump_count = 0
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and jump_count < max_jump_count:
+		jump_count += 1
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -63,6 +72,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	else:
 		animator.play("idle")
 	
+func check_upgrades():
+	if GameData.skills["double jump"]:
+		max_jump_count = 2
 	
 	
 	
