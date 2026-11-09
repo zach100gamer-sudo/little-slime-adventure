@@ -45,4 +45,4 @@ tile_map_data = PackedByteArray("AAAAAAYAAQAFAAAAAAAYAAAAAQAFAAAAAAAAAAAAAQAEAAA
 tile_set = SubResource("TileSet_w1lh6")
 
 [node name="Emerald" parent="." unique_id=1561440021 instance=ExtResource("2_1vu1u")]
-position = Vector2(70, 245)
+position = Vector2(70, 335)

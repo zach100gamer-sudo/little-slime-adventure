@@ -4,13 +4,62 @@
 [ext_resource type="Script" uid="uid://dp87sruo7s6l7" path="res://scripts/npc.gd" id="1_nrg37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1lh6"]
-size = Vector2(20, 75.5)
+size = Vector2(20, 10.5)
 
 [sub_resource type="Animation" id="Animation_c0dvn"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcSheet:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcSheet:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_gx746"]
 resource_name = "npc idle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcSheet:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcSheet:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvgss"]
 _data = {
@@ -18,15 +67,16 @@ _data = {
 &"npc idle": SubResource("Animation_gx746")
 }
 
-[node name="Npc" type="CharacterBody2D" unique_id=1791713580]
+[node name="Npc" type="Area2D" unique_id=582354831]
 script = ExtResource("1_nrg37")
 
 [node name="NpcSheet" type="Sprite2D" parent="." unique_id=528872159]
 position = Vector2(235, 167)
 texture = ExtResource("1_kd6ta")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=357340924]
-position = Vector2(419, 109)
+position = Vector2(235, 177.75)
 shape = SubResource("RectangleShape2D_w1lh6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1650107014]
