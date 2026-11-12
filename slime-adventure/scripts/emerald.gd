@@ -3,14 +3,13 @@
 # >= greater than equal to.
 # <= less than equal to.
 # < less than
-# > equal to.
+# > greater than.
 
 # var first.
 # var name second. in snake_case, exception if constant, all CAPS.
 # : third if declaring type.
 # fourth IS type always spelt in PascalCase, with exception to int, float, bool, null.
 
-#
 
 extends CharacterBody2D
 

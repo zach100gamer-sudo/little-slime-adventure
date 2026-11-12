@@ -34,8 +34,9 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_gx746"]
-resource_name = "npc idle"
-length = 0.8
+resource_name = "old npc idle."
+length = 1.1666666
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -64,11 +65,14 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvgss"]
 _data = {
 &"RESET": SubResource("Animation_c0dvn"),
-&"npc idle": SubResource("Animation_gx746")
+&"old npc idle.": SubResource("Animation_gx746")
 }
 
-[node name="Npc" type="Area2D" unique_id=582354831]
+[node name="Old dialog npc" type="Area2D" unique_id=582354831 node_paths=PackedStringArray("animation", "sprite")]
 script = ExtResource("1_nrg37")
+color = Color(0.2028963, 0.52201885, 0.29726794, 1)
+animation = NodePath("AnimationPlayer")
+sprite = NodePath("NpcSheet")
 
 [node name="NpcSheet" type="Sprite2D" parent="." unique_id=528872159]
 texture = ExtResource("1_kd6ta")
@@ -80,3 +84,5 @@ shape = SubResource("RectangleShape2D_w1lh6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1650107014]
 libraries/ = SubResource("AnimationLibrary_wvgss")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

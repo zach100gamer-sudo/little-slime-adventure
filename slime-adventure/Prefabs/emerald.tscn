@@ -298,6 +298,9 @@ _data = {
 &"walk": SubResource("Animation_rqduh")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5kbg"]
+size = Vector2(20, 10)
+
 [node name="Emerald" type="CharacterBody2D" unique_id=1561440021 node_paths=PackedStringArray("animator")]
 script = ExtResource("1_mn1fq")
 animator = NodePath("AnimationPlayer")
@@ -312,5 +315,11 @@ shape = SubResource("RectangleShape2D_w1lh6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864970242]
 libraries/ = SubResource("AnimationLibrary_waora")
+
+[node name="Interactor" type="Area2D" parent="." unique_id=872543891]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor" unique_id=889520292]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_y5kbg")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

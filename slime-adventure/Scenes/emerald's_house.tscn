@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dh2xiypfbqn2f" path="res://Assets/game sprites.png" id="1_hatvf"]
 [ext_resource type="PackedScene" uid="uid://dwcsbum5to5ut" path="res://Prefabs/emerald.tscn" id="2_1vu1u"]
+[ext_resource type="PackedScene" uid="uid://cqn8l8c06v3mv" path="res://Prefabs/npc.tscn" id="3_5jirf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1vu1u"]
 texture = ExtResource("1_hatvf")
@@ -33,10 +34,10 @@ sources/1 = SubResource("TileSetAtlasSource_1vu1u")
 [node name="Emerald\'s house" type="Node2D" unique_id=948885746]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1620207137]
-offset_left = 20.0
-offset_top = 14.0
-offset_right = 940.0
-offset_bottom = 366.0
+offset_left = 19.0
+offset_top = 13.0
+offset_right = 939.0
+offset_bottom = 365.0
 color = Color(0.39313275, 0.2922208, 0.18771842, 1)
 metadata/_edit_group_ = true
 
@@ -45,4 +46,9 @@ tile_map_data = PackedByteArray("AAAAAAYAAQAFAAAAAAAYAAAAAQAFAAAAAAAAAAAAAQAEAAA
 tile_set = SubResource("TileSet_w1lh6")
 
 [node name="Emerald" parent="." unique_id=1561440021 instance=ExtResource("2_1vu1u")]
-position = Vector2(70, 335)
+position = Vector2(808, 335)
+
+[node name="dialog npc" parent="." unique_id=582354831 instance=ExtResource("3_5jirf")]
+position = Vector2(272, 329)
+color = Color(0.1875549, 0.35004342, 0.15317538, 1)
+dialog = "Yo"
