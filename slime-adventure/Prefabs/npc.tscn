@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://gikudcxqc7ro" path="res://Assets/NPC-Sheet.png" id="1_kd6ta"]
 [ext_resource type="Script" uid="uid://dp87sruo7s6l7" path="res://scripts/npc.gd" id="1_nrg37"]
+[ext_resource type="Texture2D" uid="uid://uy3v6tufa5e5" path="res://Assets/npc.png" id="3_c0dvn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1lh6"]
 size = Vector2(20, 12)
@@ -11,7 +12,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("NpcSheet:hframes")
+tracks/0/path = NodePath("OldnpcSheet:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("NpcSheet:frame")
+tracks/1/path = NodePath("OldnpcSheet:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -31,6 +32,59 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Npc:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Npc:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wvgss"]
+resource_name = "npc idle"
+length = 1.3333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Npc:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.7, 1.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Npc:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_gx746"]
@@ -40,7 +94,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("NpcSheet:hframes")
+tracks/0/path = NodePath("OldnpcSheet:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,7 +106,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("NpcSheet:frame")
+tracks/1/path = NodePath("OldnpcSheet:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -65,16 +119,17 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvgss"]
 _data = {
 &"RESET": SubResource("Animation_c0dvn"),
+&"npc idle": SubResource("Animation_wvgss"),
 &"old npc idle.": SubResource("Animation_gx746")
 }
 
-[node name="Old dialog npc" type="Area2D" unique_id=582354831 node_paths=PackedStringArray("animation", "sprite")]
+[node name="dialog npc" type="Area2D" unique_id=582354831 node_paths=PackedStringArray("animation", "sprite")]
 script = ExtResource("1_nrg37")
 color = Color(0.2028963, 0.52201885, 0.29726794, 1)
 animation = NodePath("AnimationPlayer")
-sprite = NodePath("NpcSheet")
+sprite = NodePath("OldnpcSheet")
 
-[node name="NpcSheet" type="Sprite2D" parent="." unique_id=528872159]
+[node name="OldnpcSheet" type="Sprite2D" parent="." unique_id=528872159]
 texture = ExtResource("1_kd6ta")
 hframes = 2
 
@@ -84,5 +139,10 @@ shape = SubResource("RectangleShape2D_w1lh6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1650107014]
 libraries/ = SubResource("AnimationLibrary_wvgss")
+
+[node name="Npc" type="Sprite2D" parent="." unique_id=1385194384]
+texture = ExtResource("3_c0dvn")
+hframes = 4
+frame = 2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
