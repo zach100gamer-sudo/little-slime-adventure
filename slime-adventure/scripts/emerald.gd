@@ -1,3 +1,9 @@
+# : stuff
+# : declaring type.
+# : at end of if, elif, or else.
+# : at end of func.
+
+# =!><
 # == equal to.
 # != not equal to.
 # >= greater than equal to.
@@ -10,8 +16,12 @@
 # : third if declaring type.
 # fourth IS type always spelt in PascalCase, with exception to int, float, bool, null.
 
+# . stuff
+# using . acceses var data
 
 extends CharacterBody2D
+
+class_name Player
 
 var max_jump_count : int = 1
 var jump_count : int = 0
@@ -23,6 +33,7 @@ var jump_count : int = 0
 func _ready() -> void:
 	animator.play("idle")
 	check_upgrades()
+	GameData.player = self
 
 func _physics_process(delta: float) -> void:
 	# handle the gravity.
