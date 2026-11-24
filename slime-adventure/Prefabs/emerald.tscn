@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mj21jq48kmi8" path="res://scripts/emerald.gd" id="1_mn1fq"]
 [ext_resource type="Texture2D" uid="uid://tmd0q3frtmb5" path="res://Assets/Emerald-Sheet.png" id="2_2e22i"]
+[ext_resource type="Script" uid="uid://b43mj0h4g4wev" path="res://scripts/camera_2d.gd" id="3_2e22i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1lh6"]
 size = Vector2(20, 10.75)
@@ -323,6 +324,7 @@ position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_y5kbg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1542512479]
-position = Vector2(0, -99)
+position = Vector2(0, -38)
+script = ExtResource("3_2e22i")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

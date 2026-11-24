@@ -1,6 +1,7 @@
 # creates a dictionary that stores a string and bool.
 extends Node
 
+var camera : Camera2D
 var player : Player
 var player_pos : Vector2
 var skills : Dictionary[String, bool] = {
