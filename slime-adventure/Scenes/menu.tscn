@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dy1rpu4c4n8jd"]
+
+[ext_resource type="Texture2D" uid="uid://mtxs8j5dwheo" path="res://Assets/menu.png" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://5foogn88bfbe" path="res://scripts/menu.gd" id="1_xhh6f"]
+
+[node name="menu" type="Control" unique_id=1305097917]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xhh6f")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1348610635]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1rerr")
+
+[node name="Button" type="Button" parent="." unique_id=940289192]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -42.0
+offset_right = 68.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start new game."
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

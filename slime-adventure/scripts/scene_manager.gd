@@ -11,7 +11,8 @@ func load_scene(path: String, pos: Vector2):
 	if get_child_count() > 0:
 		get_child(0).queue_free()
 	var scene = load(prefix + path)
-	add_child(scene.instantiate())
+	call_deferred("add_child", scene.instantiate()) 
+	# add_child(scene.instantiate())
 	self.path = path
 
 	if GameData.player:
